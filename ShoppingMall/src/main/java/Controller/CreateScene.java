@@ -1,10 +1,7 @@
 package Controller;
 
 public class CreateScene extends Scene{
-    @Override
-    public void initialize() {
 
-    }
 
     @Override
     public void render() {
