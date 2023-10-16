@@ -12,9 +12,8 @@ import java.util.Scanner;
 public class MainController extends Scene{
 
     private Scene sceneState = null;
-    private MealkitDAOImplement mealkitDAOImplement = null;
+
     public MainController() {
-        mealkitDAOImplement = new MealkitDAOImplement();
         MealkitDAOImplement.getInstance().createTable();
     }
 
@@ -98,7 +97,7 @@ public class MainController extends Scene{
                 mealkitDTO.setMealName(MealInfo);
 
 
-                mealkitDAOImplement.updateMealkit(mealkitDTO);
+                MealkitDAOImplement.getInstance().updateMealkit(mealkitDTO);
 
                 break;
             }
