@@ -7,7 +7,9 @@ import lombok.Getter;
 public class Mealkit {
 
     String MealName, MealCategory, MealInfo;
-    int MealPrice;
+    int MealID, MealPrice;
+
+    public Mealkit() {}
 
     @Builder
     public Mealkit(long id, String mealName, String mealCategory, String mealPrice, String mealInfo) {

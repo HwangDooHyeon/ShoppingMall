@@ -4,6 +4,7 @@ import DAO.MealkitDAO;
 import DAO.MealkitDAOImplement;
 import DTO.MealkitDTO;
 import Service.MealkitService;
+
 import Service.ScanService;
 
 import java.util.Scanner;
@@ -14,6 +15,7 @@ public class MainController extends Scene{
     private MealkitDAOImplement mealkitDAOImplement = null;
     public MainController() {
         mealkitDAOImplement = new MealkitDAOImplement();
+        MealkitDAOImplement.getInstance().createTable();
     }
 
     public void setScene() {
@@ -42,7 +44,27 @@ public class MainController extends Scene{
 
             case 2:
                 System.out.println("상품 추가");
-                sceneState = new CreateScene();
+//                sceneState = new CreateScene();
+                MealkitDTO mealkitDTO = new MealkitDTO();
+
+                System.out.print("상품 이름 입력: ");
+                mealkitDTO.setMealName(
+                        ScanService.scanner.nextLine());
+
+                System.out.print("상품 카테고리 입력: ");
+                mealkitDTO.setMealCategory(
+                        ScanService.scanner.nextLine());
+
+                System.out.print("상품 가격 입력: ");
+                mealkitDTO.setMealPrice(
+                        ScanService.scanner.nextInt());
+
+                System.out.print("상품 정보 입력: ");
+                mealkitDTO.setMealInfo(
+                        ScanService.scanner.nextLine());
+
+                MealkitDAOImplement.getInstance().create(mealkitDTO);
+
                 break;
 
             case 3: {
