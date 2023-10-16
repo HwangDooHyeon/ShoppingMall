@@ -15,7 +15,15 @@ public interface MealkitDAO {
 
         public void findbyPrice();
 
-        public void updateMealkit();
+        public void updateAll();
+
+        public void updateName();
+
+        public void updateCategory();
+
+        public void updatePrice();
+
+        public void updateInfo();
 
         public void delete();
 
