@@ -6,7 +6,7 @@ import lombok.Getter;
 public class Mealkit {
 
     String MealName, MealCategory, MealInfo;
-    int MealPrice;
+    int MealID, MealPrice;
 
     public Mealkit() {}
 

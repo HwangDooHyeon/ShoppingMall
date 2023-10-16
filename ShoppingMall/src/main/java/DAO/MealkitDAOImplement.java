@@ -30,9 +30,10 @@ public class MealkitDAOImplement implements MealkitDAO {
         }
     }
 
-    public void create(Mealkit mealkit){
+    public void create(Mealkit mealkit) {
         try {
             String insertSQL = "INSERT INTO Mealkit (MealName, MealCategory, MealPrice, MealInfo) VALUES (?, ?, ?, ?)";
+
             PreparedStatement insertStatement = connection.prepareStatement(insertSQL);
 
             insertStatement.setString(1, mealkit.getMealName());
@@ -56,8 +57,85 @@ public class MealkitDAOImplement implements MealkitDAO {
 
     public void findbyPrice(){};
 
-    public void updateMealkit(){
+    public void updateAll(Mealkit mealkit) {
 
+        try {
+            String updateSQL = "UPDATE Mealkit SET  MealName = ?, MealCategory = ?, MealPrice = ?, MealInfo = ? WHERE id = ?";
+
+            PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
+
+            updateStatement.setString(1, mealkit.getMealName());
+            updateStatement.setString(2, mealkit.getMealCategory());
+            updateStatement.setInt(3, mealkit.getMealPrice());
+            updateStatement.setString(4, mealkit.getMealInfo());
+            updateStatement.setInt(5, mealkit.getMealID());
+
+            int rowsAffected = updateStatement.executeUpdate();
+
+            if (rowsAffected >0) {
+                System.out.println("업데이트되었습니다");
+            } else {
+                System.out.println("상품을 찾을 수 없습니다");
+            }
+
+            updateStatement.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+
+    }
+
+    public void updateName(Mealkit mealkit) {
+        try {
+            String updateSQL ="UPDATE Mealkit SET MealName =? WHERE MealID =? ";
+
+            PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
+
+            updateStatement.setString(1,mealkit.getMealName());
+            updateStatement.setInt(2, mealkit.getMealID());
+
+            int rowsAffected = updateStatement.executeUpdate();
+
+            if (rowsAffected >0) {
+                System.out.println("업데이트되었습니다");
+            } else {
+                System.out.println("상품을 찾을 수 없습니다");
+            }
+
+            updateStatement.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    };
+
+    public void updateCategory(){};
+
+    public void updatePrice(){};
+
+    public void updateInfo(Mealkit mealkit) {
+        try {
+            String updateSQL ="UPDATE Mealkit SET MealCategory =? WHERE MealID =? ";
+
+            PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
+
+            updateStatement.setString(1,mealkit.getMealInfo());
+            updateStatement.setInt(2, mealkit.getMealID());
+
+            int rowsAffected = updateStatement.executeUpdate();
+
+            if (rowsAffected >0) {
+                System.out.println("업데이트되었습니다");
+            } else {
+                System.out.println("상품을 찾을 수 없습니다");
+            }
+
+            updateStatement.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
     };
 
     public void delete(){};

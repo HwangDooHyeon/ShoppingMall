@@ -15,9 +15,6 @@ public class MainController extends Scene{
     private MealkitDAOImplement mealkitDAOImplement = null;
     public MainController() {
         mealkitDAOImplement = new MealkitDAOImplement();
-    }
-
-    public MainController() {
         MealkitDAOImplement.getInstance().createTable();
     }
 
