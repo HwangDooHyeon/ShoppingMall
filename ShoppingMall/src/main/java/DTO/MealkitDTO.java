@@ -18,7 +18,8 @@ public class MealkitDTO {
         MealInfo = mealkit.getMealInfo();
     }
 
+    private Long MealID;
     private String MealName, MealCategory, MealInfo;
-    private int MealID, MealPrice;
+    private int MealPrice;
 
 }
