@@ -4,10 +4,13 @@ import DAO.MealkitDAOImplement;
 import OBJ.Mealkit;
 import Service.ScanService;
 
-public class ReadScene extends Scene{
+public class ReadScene extends Scene {
+ 
+    MealkitService mealkitService = null;
 
-    public ReadScene(){
-
+    public ReadScene() {
+        mealkitService = new MealkitService();
+ 
     }
 
     @Override
@@ -27,8 +30,8 @@ public class ReadScene extends Scene{
 
         int i = ScanService.scanner.nextInt();
 
-        switch (i){
-            case 1 : {
+        switch (i) {
+            case 1: {
                 // ** 전체 검색
                 for (Mealkit mealkit : MealkitDAOImplement.getInstance().findAll()) {
                     System.out.println("---------------------------");
@@ -39,13 +42,14 @@ public class ReadScene extends Scene{
                                     mealkit.getMealInfo());
                 }
             }
-                break;
-            case 2 :{
+            break;
+            case 2: {
                 // ** 카테고리 검색
                 System.out.print("카테고리 입력: ");
                 String mealCategory = ScanService.scanner.nextLine();
 
                 Mealkit mealkit = MealkitDAOImplement.getInstance().findbyCategory(mealCategory);
+              
                 System.out.println("---------------------------");
                 System.out.println(
                         mealkit.getMealName() + ", " +
@@ -55,7 +59,26 @@ public class ReadScene extends Scene{
 
             }
             break;
+
+            case 3:
+                //이름 별 검색
+            {
+                System.out.println("상품 이름 입력 : ");
+                Mealkit mealkit = MealkitDAOImplement.getInstance().findbyName("mealName");
+                String MealName = ScanService.scanner.nextLine();
+                MealkitDAOImplement.findbyName(MealName);
+            }
+            break;
+
+            case 4: {//상품 가격 검색
+                System.out.println("상품 가격 입력 : ");
+                Mealkit mealkit = MealkitDAOImplement.getInstance().findbyPrice();
+                String MealPrice = ScanService.scanner.nextLine();
+                MealkitDAOImplement.findbyPrice(MealPrice);
+            }
+            break;
         }
         return 0;
     }
 }
+
