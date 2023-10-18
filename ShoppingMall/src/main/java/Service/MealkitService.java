@@ -12,20 +12,13 @@ public class MealkitService {
         MealkitDAOImplement.getInstance().createTable();
     }
 
-//    public List<Mealkit> findAll() {
-//        return MealkitDAOImplement.getInstance().findAll();
-//    }
-//    public Mealkit findbyCategory(String mealCategory){
-//        return MealkitDAOImplement.getInstance().findbyCategory(mealCategory);
-//    }
-//
-//    public Mealkit findbyName(String mealName){
-//        return MealkitDAOImplement.getInstance().findbyName(mealName);
-//    }
-//
-//    public Mealkit findbyPrice(int mealPrice){
-//        return MealkitDAOImplement.getInstance().findbyPrice(mealPrice);
-//    }
-//
+    public List<Mealkit> findAll() {
+        return MealkitDAOImplement.getInstance().findAll();
+    }
+    public Mealkit findbyCategory(String mealCategory){
+        return MealkitDAOImplement.getInstance().findbyCategory(mealCategory);
+    }
+
+
 
 }
