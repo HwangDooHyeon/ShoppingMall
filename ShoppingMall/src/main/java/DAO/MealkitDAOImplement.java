@@ -65,11 +65,49 @@ public class MealkitDAOImplement implements MealkitDAO {
 
     public void findbyCategory(){}
 
-  
-    public void findbyName(){}
 
-  
-    public void findbyPrice(){}
+    public void findbyName(String mealName) {
+        String selectSQL = "SELECT * FROM Mealkit WHERE MealName=?";
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(selectSQL);
+
+            List<Mealkit> mealkit = new ArrayList<>();
+
+            while (resultSet.next()) {
+                mealkit.add(
+                        new Mealkit(resultSet.getString("MealName")));
+            }
+
+            resultSet.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    }
+
+
+    public void findbyPrice(int MealPrice) {
+        String selectSQL = "SELECT * FROM Mealkit WHERE MealPrice=?";
+
+        try {
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery(selectSQL);
+
+            List<Mealkit> mealkit = new ArrayList<>();
+
+            while (resultSet.next()) {
+                mealkit.add(
+                        new Mealkit(resultSet.getInt("MealPrice")));
+            }
+
+            resultSet.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    }
 
   
     public void updateAll(Mealkit mealkit) {
