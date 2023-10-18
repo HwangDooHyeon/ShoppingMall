@@ -2,15 +2,15 @@ package Controller;
 
 import DAO.MealkitDAOImplement;
 import OBJ.Mealkit;
-import Service.MealkitService;
 import Service.ScanService;
 
 public class ReadScene extends Scene {
-
+ 
     MealkitService mealkitService = null;
 
     public ReadScene() {
         mealkitService = new MealkitService();
+ 
     }
 
     @Override
@@ -33,7 +33,7 @@ public class ReadScene extends Scene {
         switch (i) {
             case 1: {
                 // ** 전체 검색
-                for (Mealkit mealkit : mealkitService.findAll()) {
+                for (Mealkit mealkit : MealkitDAOImplement.getInstance().findAll()) {
                     System.out.println("---------------------------");
                     System.out.println(
                             mealkit.getMealName() + ", " +
@@ -48,7 +48,8 @@ public class ReadScene extends Scene {
                 System.out.print("카테고리 입력: ");
                 String mealCategory = ScanService.scanner.nextLine();
 
-                Mealkit mealkit = MealkitDAOImplement.findbyCategory(mealCategory);
+                Mealkit mealkit = MealkitDAOImplement.getInstance().findbyCategory(mealCategory);
+              
                 System.out.println("---------------------------");
                 System.out.println(
                         mealkit.getMealName() + ", " +

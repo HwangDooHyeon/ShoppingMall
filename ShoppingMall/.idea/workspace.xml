@@ -9,11 +9,10 @@
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ReadScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ReadScene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/MealkitDAOImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/MealkitDAOImplement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DTO/MealkitDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DTO/MealkitDTO.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,10 +64,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
+
+    "git-widget-placeholder": "Youngju",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/thwls/OneDrive/바탕 화면/그린컴퓨터아카데미/프린세스메이커/Princess6_1/Princess6/Princess5",
-    "settings.editor.selected.configurable": "File.Encoding"
+    "last_opened_file_path": "C:/Users/youngju/Desktop/★인생발전소/★쇼핑몰 프로젝트/ShoppingMall/ShoppingMall"
+
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
@@ -81,6 +81,17 @@
       <updated>1696947185051</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />

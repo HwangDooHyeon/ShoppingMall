@@ -11,10 +11,9 @@ import java.util.Scanner;
 public class MainController extends Scene{
 
     private Scene sceneState = null;
-    private MealkitDAOImplement mealkitDAOImplement = null;
+
     public MainController() {
-        mealkitDAOImplement = new MealkitDAOImplement();
-        mealkitDAOImplement.createTable();
+      MealkitDAOImplement.getInstance().createTable();
     }
 
     public void setScene() {
@@ -101,7 +100,7 @@ public class MainController extends Scene{
                 String MealInfo =  ScanService.scanner.nextLine();
                 mealkitDTO.setMealName(MealInfo);
 
-                mealkitDAOImplement.updateMealkit(mealkitDTO);
+                MealkitDAOImplement.getInstance().updateMealkit(mealkitDTO);
                 break;
             }
             case 4:
