@@ -1,96 +1,204 @@
 package DAO;
 
 import OBJ.Mealkit;
+
+import java.sql.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Connection;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MealkitDAOImplement implements MealkitDAO {
+
+    private static MealkitDAOImplement instance = new MealkitDAOImplement();
+
+    private MealkitDAOImplement(){}
+
+    public static MealkitDAOImplement getInstance() {return instance;}
+
     private Connection connection = null;
-
-    private MealkitDAOImplement() {
-    }
-
-    public static MealkitDAOImplement getInstance() {
-        return getInstance();
-    }
 
 
     public void createTable() {
-        String tableSQL = "CREATE TABLE IF NOT EXISTS User (" +
+        String tableSQL = "CREATE TABLE IF NOT EXISTS Mealkit (" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
-                "MealPrice INT NOT NULL, " +
-                "MealName VARCHAR(255) NOT NULL, " +
-                "MealCategory VARCHAR(255) NOT NULL, " +
+                "MealName VARCHAR(255) NOT NULL," +
+                "MealCategory VARCHAR(255) NOT NULL," +
+                "MealPrice VARCHAR(255) NOT NULL," +
                 "MealInfo VARCHAR(255) NOT NULL)";
-    }
-
-    public void create() {
-        String insertSQL = "INSERT INTO Mealkit (MealPrice, MealName, MealCategory, MealInfo) VALUES (?, ?, ?, ?)";
-//        PreparedStatement insertStatement = connection.prepareStatement(insertSQL);}
-    }
-
-    public void findAll() {
-    }
-
-    public void findbyCategory() {
-    }
-
-    public void findbyName(String mealName) {
-        String selectSQL = "SELECT * FROM Mealkit WHERE MealName=?";
-
         try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(selectSQL);
-
-            List<Mealkit> mealkit = new ArrayList<>();
-
-            while (resultSet.next()) {
-                mealkit.add(
-                        new Mealkit(resultSet.getString("MealName")));
+            try (PreparedStatement statement = connection.prepareStatement(tableSQL)) {
+                statement.execute();
             }
+        }catch (SQLException e) {
+            e.getMessage();
+        }
+    }
+       
 
-            resultSet.close();
+    public void create(Mealkit mealkit) {
+        try {
+            String insertSQL = "INSERT INTO Mealkit (MealName, MealCategory, MealPrice, MealInfo) VALUES (?, ?, ?, ?)";
+
+            PreparedStatement insertStatement = connection.prepareStatement(insertSQL);
+
+            insertStatement.setString(1, mealkit.getMealName());
+            insertStatement.setString(2, mealkit.getMealCategory());
+            insertStatement.setInt(3, mealkit.getMealPrice());
+            insertStatement.setString(4, mealkit.getMealInfo());
+
+            insertStatement.execute();
+            insertStatement.close();
 
         } catch (SQLException e) {
             e.getMessage();
         }
     }
 
+  
+    public void findAll(){}
+  
 
-    public void findbyPrice(int MealPrice) {
-        String selectSQL = "SELECT * FROM Mealkit WHERE MealPrice=?";
+    public void findbyCategory(){}
+
+  
+    public void findbyName(){}
+
+  
+    public void findbyPrice(){}
+
+  
+    public void updateAll(Mealkit mealkit) {
 
         try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(selectSQL);
+            String updateSQL = "UPDATE Mealkit SET  MealName = ?, MealCategory = ?, MealPrice = ?, MealInfo = ? WHERE id = ?";
 
-            List<Mealkit> mealkit = new ArrayList<>();
+            PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
 
-            while (resultSet.next()) {
-                mealkit.add(
-                        new Mealkit(resultSet.getInt("MealPrice")));
+            updateStatement.setString(1, mealkit.getMealName());
+            updateStatement.setString(2, mealkit.getMealCategory());
+            updateStatement.setInt(3, mealkit.getMealPrice());
+            updateStatement.setString(4, mealkit.getMealInfo());
+            updateStatement.setInt(5, mealkit.getMealID());
+
+            int rowsAffected = updateStatement.executeUpdate();
+
+            if (rowsAffected >0) {
+                System.out.println("업데이트되었습니다");
+            } else {
+                System.out.println("상품을 찾을 수 없습니다");
             }
 
-            resultSet.close();
+            updateStatement.close();
 
         } catch (SQLException e) {
             e.getMessage();
         }
+
     }
+  
+
+    public void updateName(Mealkit mealkit) {
+        try {
+            String updateSQL ="UPDATE Mealkit SET MealName =? WHERE MealID =? ";
+
+            PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
+
+            updateStatement.setString(1,mealkit.getMealName());
+            updateStatement.setInt(2, mealkit.getMealID());
+
+            int rowsAffected = updateStatement.executeUpdate();
+
+            if (rowsAffected >0) {
+                System.out.println("업데이트되었습니다");
+            } else {
+                System.out.println("상품을 찾을 수 없습니다");
+            }
+
+            updateStatement.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    };
+
+
+    public void updateCategory(Mealkit mealkit){
+        try {
+            String updateSQL ="UPDATE Mealkit SET MealCategory =? WHERE MealID =? ";
+            PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
+
+            updateStatement.setString(1,mealkit.getMealCategory());
+            updateStatement.setLong(2, mealkit.getMealID());
+
+            int rowsAffected = updateStatement.executeUpdate();
+            if (rowsAffected >0){
+                System.out.println("업데이트되었습니다");
+            }else {
+                System.out.println("상품을 찾을 수 없습니다");
+            }
+            updateStatement.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    };
+
+
+    public void updatePrice(Mealkit mealkit){
+        try {
+            String updateSQL ="UPDATE Mealkit SET MealPrice =? WHERE MealID =? ";
+            PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
+
+            updateStatement.setInt(1,mealkit.getMealPrice());
+            updateStatement.setLong(2, mealkit.getMealID());
+
+            int rowsAffected = updateStatement.executeUpdate();
+
+            if (rowsAffected > 0) {
+                System.out.println("상품 가격이 업데이트되었습니다.");
+            } else {
+                System.out.println("상품을 찾을 수 없습니다.");
+            }
+
+            updateStatement.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    };
+
+  
+    public void updateInfo(Mealkit mealkit) {
+        try {
+            String updateSQL ="UPDATE Mealkit SET MealCategory =? WHERE MealID =? ";
+
+            PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
+
+            updateStatement.setString(1,mealkit.getMealInfo());
+            updateStatement.setInt(2, mealkit.getMealID());
+
+            int rowsAffected = updateStatement.executeUpdate();
+
+            if (rowsAffected >0) {
+                System.out.println("업데이트되었습니다");
+            } else {
+                System.out.println("상품을 찾을 수 없습니다");
+            }
+
+            updateStatement.close();
+
+        } catch (SQLException e) {
+            e.getMessage();
+        }
+    };
+
+  
+    public void delete(){};
+
+  
 }
-
-//            public void updateAll(){}
-//
-//            public void updateName(){}
-//
-//            public void updateCategory(){}
-//
-//            public void updatePrice(){}
-//
-//            public void updateInfo(){}
-//
-//            public void delete(){}
