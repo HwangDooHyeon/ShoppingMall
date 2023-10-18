@@ -4,7 +4,6 @@ import DAO.MealkitDAO;
 import DAO.MealkitDAOImplement;
 import DTO.MealkitDTO;
 import Service.MealkitService;
-
 import Service.ScanService;
 
 import java.util.Scanner;
@@ -14,7 +13,7 @@ public class MainController extends Scene{
     private Scene sceneState = null;
 
     public MainController() {
-        MealkitDAOImplement.getInstance().createTable();
+      MealkitDAOImplement.getInstance().createTable();
     }
 
     public void setScene() {
@@ -38,11 +37,13 @@ public class MainController extends Scene{
                 break;
             case 1:
                 System.out.println("상품 검색");
+                sceneState = new CreateScene();
                 sceneState = new ReadScene();
                 break;
 
             case 2:
                 System.out.println("상품 추가");
+                sceneState = new CreateScene();
 //                sceneState = new CreateScene();
                 MealkitDTO mealkitDTO = new MealkitDTO();
 
@@ -63,7 +64,6 @@ public class MainController extends Scene{
                         ScanService.scanner.nextLine());
 
                 MealkitDAOImplement.getInstance().create(mealkitDTO);
-
                 break;
 
             case 3: {
@@ -72,7 +72,7 @@ public class MainController extends Scene{
                 Long mealId =  ScanService.scanner.nextLong();
                 ScanService.scanner.nextLine();
 
-                MealkitDTO mealkitDTO = new MealkitDTO(
+                MealkitDTO mealkitDTO1 = new MealkitDTO(
                     mealkitDAOImplement.findById(mealId)
                 );
 
@@ -88,6 +88,10 @@ public class MainController extends Scene{
 
                 // 가격
                 System.out.print("변경할 가격 입력 : ");
+                String mealPrice =  ScanService.scanner.nextLine();
+                mealkitDAOImplement.findbyPrice();
+                mealkitDTO.setMealName(mealPrice);
+                mealkitDAOImplement.updateMealkit();
                 String MealPrice =  ScanService.scanner.nextLine();
                 mealkitDTO.setMealName(MealPrice);
 
@@ -96,13 +100,12 @@ public class MainController extends Scene{
                 String MealInfo =  ScanService.scanner.nextLine();
                 mealkitDTO.setMealName(MealInfo);
 
-
                 MealkitDAOImplement.getInstance().updateMealkit(mealkitDTO);
-
                 break;
             }
             case 4:
                 System.out.println("상품 삭제");
+                mealkitDAOImplement.findAll();
                 break;
 
         }
