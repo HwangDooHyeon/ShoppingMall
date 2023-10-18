@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="115b77f4-689f-4c39-9588-1cf088b3cb81" name="변경" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/Controller/Scene.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/XxxController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MealkitController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/XxxDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/MealkitDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DAO/XxxDAOImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DAO/MealkitDAOImplement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/DTO/XxxDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/DTO/MealkitDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Object/Xxx.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/OBJ/Mealkit.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Service/XxxService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Service/MealkitService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Utility/XxxManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Utility/MealkitManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/ReadScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/ReadScene.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,9 +64,11 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "Sojin",
+
+    "git-widget-placeholder": "Youngju",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/thwls/OneDrive/바탕 화면/새 폴더/ShoppingMall/ShoppingMall"
+    "last_opened_file_path": "C:/Users/youngju/Desktop/★인생발전소/★쇼핑몰 프로젝트/ShoppingMall/ShoppingMall"
+
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
@@ -79,6 +81,17 @@
       <updated>1696947185051</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
