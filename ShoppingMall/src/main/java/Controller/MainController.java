@@ -101,16 +101,16 @@ public class MainController extends Scene{
 
                 break;
             }
-            case 4:
-                System.out.println("상품 삭제");
+            case 4: 
+                System.out.print("삭제할 밀키트 번호 입력 : ");
+                Long Id = ScanService.scanner.nextLong();
+                ScanService.scanner.nextLine();
+
+                MealkitDAOImplement.getInstance().delete(Id);
                 break;
 
         }
 
-    }
-    @Override
-    public void render() {
-        sceneState.render();
     }
 
     @Override

@@ -38,7 +38,7 @@ public class MealkitDAOImplement implements MealkitDAO {
             e.getMessage();
         }
     }
-       
+
 
     public void create(Mealkit mealkit) {
         try {
@@ -126,9 +126,15 @@ public class MealkitDAOImplement implements MealkitDAO {
 
             List<Mealkit> mealkit = new ArrayList<>();
 
-            while (resultSet.next()) {
+            while(resultSet.next()) {
                 mealkit.add(
-                        new Mealkit(resultSet.getString("MealName")));
+                        new Mealkit(
+                                resultSet.getLong("id"),
+                                resultSet.getString("MealName"),
+                                resultSet.getString("MealCategory"),
+                                resultSet.getInt("MealPrice"),
+                                resultSet.getString("MealInfo")
+                        ));
             }
 
             resultSet.close();
@@ -150,7 +156,13 @@ public class MealkitDAOImplement implements MealkitDAO {
 
             while (resultSet.next()) {
                 mealkit.add(
-                        new Mealkit(resultSet.getInt("MealPrice")));
+                        new Mealkit(
+                                resultSet.getLong("id"),
+                                resultSet.getString("MealName"),
+                                resultSet.getString("MealCategory"),
+                                resultSet.getInt("MealPrice"),
+                                resultSet.getString("MealInfo")
+                        ));
             }
 
             resultSet.close();
@@ -160,7 +172,7 @@ public class MealkitDAOImplement implements MealkitDAO {
         }
     }
 
-  
+
     public void updateAll(Mealkit mealkit) {
 
         try {
@@ -172,7 +184,7 @@ public class MealkitDAOImplement implements MealkitDAO {
             updateStatement.setString(2, mealkit.getMealCategory());
             updateStatement.setInt(3, mealkit.getMealPrice());
             updateStatement.setString(4, mealkit.getMealInfo());
-            updateStatement.setInt(5, mealkit.getMealID());
+            updateStatement.setLong(5, mealkit.getMealID());
 
             int rowsAffected = updateStatement.executeUpdate();
 
@@ -189,7 +201,7 @@ public class MealkitDAOImplement implements MealkitDAO {
         }
 
     }
-  
+
 
     public void updateName(Mealkit mealkit) {
         try {
@@ -198,7 +210,7 @@ public class MealkitDAOImplement implements MealkitDAO {
             PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
 
             updateStatement.setString(1,mealkit.getMealName());
-            updateStatement.setInt(2, mealkit.getMealID());
+            updateStatement.setLong(2, mealkit.getMealID());
 
             int rowsAffected = updateStatement.executeUpdate();
 
@@ -261,7 +273,7 @@ public class MealkitDAOImplement implements MealkitDAO {
         }
     };
 
-  
+
     public void updateInfo(Mealkit mealkit) {
         try {
             String updateSQL ="UPDATE Mealkit SET MealCategory =? WHERE MealID =? ";
@@ -269,7 +281,7 @@ public class MealkitDAOImplement implements MealkitDAO {
             PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
 
             updateStatement.setString(1,mealkit.getMealInfo());
-            updateStatement.setInt(2, mealkit.getMealID());
+            updateStatement.setLong(2, mealkit.getMealID());
 
             int rowsAffected = updateStatement.executeUpdate();
 
@@ -286,8 +298,18 @@ public class MealkitDAOImplement implements MealkitDAO {
         }
     };
 
-  
-    public void delete(){};
 
-  
+    public void delete(Long MealID){
+        String selectSQL = "DELETE FROM User WHERE id=?";
+
+        try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
+
+            statement.setLong(1, MealID);
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
 }
