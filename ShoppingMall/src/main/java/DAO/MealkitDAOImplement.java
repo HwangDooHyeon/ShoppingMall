@@ -299,7 +299,17 @@ public class MealkitDAOImplement implements MealkitDAO {
     };
 
 
-    public void delete(){};
+    public void delete(Long MealID){
+        String selectSQL = "DELETE FROM User WHERE id=?";
 
+        try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
+
+            statement.setLong(1, MealID);
+            statement.executeUpdate();
+            statement.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
