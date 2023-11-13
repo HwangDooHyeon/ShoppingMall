@@ -40,7 +40,7 @@ public class MealkitDAOImplement implements MealkitDAO {
         }
     }
 
-
+  
     @Override
     public void create(MealkitDTO mealkitDTO) {
         try {
@@ -92,7 +92,34 @@ public class MealkitDAOImplement implements MealkitDAO {
         }
     };
 
+  
+  @Override
+    public Mealkit findById(Long ID) {
+        String selectSQL = "SELECT * FROM MealkitDTO WHERE id=?";
+        try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
 
+            statement.setLong(1, ID);
+            ResultSet resultSet = statement.executeQuery();
+
+            if(resultSet.next()){
+                return new Mealkit(
+                        resultSet.getLong("MealID"),
+                        resultSet.getString("MealName"),
+                        resultSet.getString("MealCategory"),
+                        resultSet.getInt("MealPrice"),
+                        resultSet.getString("MealInfo"));
+            }
+
+            resultSet.close();
+            return null;
+
+        } catch (SQLException e) {
+            e.getMessage();
+            return null;
+        }
+    }
+
+  
     @Override
     public Mealkit findbyCategory(String mealCategory){
         String selectSQL = "SELECT * FROM User WHERE MealCategory=?";

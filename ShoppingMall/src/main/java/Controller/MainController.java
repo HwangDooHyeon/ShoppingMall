@@ -48,6 +48,7 @@ public class MainController extends Scene{
                 sceneState = new UpdateScene();
                 break;
             }
+
             case 4: {
                 System.out.println("상품 삭제");
                 sceneState = new DeleteScene();

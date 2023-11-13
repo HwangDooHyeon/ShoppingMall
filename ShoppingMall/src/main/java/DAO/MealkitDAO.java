@@ -7,11 +7,14 @@ import java.util.List;
 
 public interface MealkitDAO {
 
+
     public void createTable();
 
     public void create(MealkitDTO mealkitDTO);
 
     public List<Mealkit> findAll();
+  
+    public Mealkit findById(Long ID)
 
     public Mealkit findbyCategory(String mealCategory);
 
