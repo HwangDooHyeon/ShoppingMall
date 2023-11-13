@@ -2,12 +2,13 @@ package DAO;
 
 public interface MealkitDAO {
 
-    public interface SceneDAO {
         public void createTable();
 
         public void create();
 
         public void findAll();
+
+        public void findById();
 
         public void findbyCategory();
 
@@ -28,4 +29,4 @@ public interface MealkitDAO {
         public void delete();
 
     }
-}
+
