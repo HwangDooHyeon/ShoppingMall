@@ -55,6 +55,36 @@ public class ReadScene extends Scene{
 
             }
             break;
+            case 3 : {
+                // ** 상품명 검색
+                System.out.println("상품명 입력: ");
+                String mealName = ScanService.scanner.nextLine();
+
+                Mealkit mealkit = MealkitDAOImplement.getInstance().findbyName(mealName);
+                System.out.println("---------------------------");
+                System.out.println(
+                        mealkit.getMealName() + ", " +
+                                mealkit.getMealCategory() + ", " +
+                                mealkit.getMealPrice() + ", " +
+                                mealkit.getMealInfo());
+
+            }
+            break;
+            case 4 : {
+                //** 상품 가격 검색
+                System.out.println("상품가격 입력: ");
+                int mealPrice = ScanService.scanner.nextInt();
+
+                Mealkit mealkit = MealkitDAOImplement.getInstance().findbyPrice(mealPrice);
+                System.out.println("---------------------------");
+                System.out.println(
+                        mealkit.getMealName() + ", " +
+                                mealkit.getMealCategory() + ", " +
+                                mealkit.getMealPrice() + ", " +
+                                mealkit.getMealInfo());
+
+            }
+            break;
         }
         return 0;
     }
