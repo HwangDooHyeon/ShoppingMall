@@ -101,12 +101,8 @@ public class MainController extends Scene{
 
                 break;
             }
-            case 4: 
-                System.out.print("삭제할 밀키트 번호 입력 : ");
-                Long Id = ScanService.scanner.nextLong();
-                ScanService.scanner.nextLine();
-
-                MealkitDAOImplement.getInstance().delete(Id);
+            case 4:
+                sceneState = new DeleteScene();
                 break;
 
         }
