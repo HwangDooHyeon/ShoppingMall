@@ -5,7 +5,7 @@ public class Main {
         MainController mainController = new MainController();
         while (true){
             mainController.setScene();
-            mainController.render();
+//            mainController.render();
             mainController.update();
 
         }
