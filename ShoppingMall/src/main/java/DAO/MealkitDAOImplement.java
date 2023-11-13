@@ -1,8 +1,8 @@
 package DAO;
 
+import DTO.MealkitDTO;
 import OBJ.Mealkit;
 
-import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,6 +23,7 @@ public class MealkitDAOImplement implements MealkitDAO {
     private Connection connection = null;
 
 
+    @Override
     public void createTable() {
         String tableSQL = "CREATE TABLE IF NOT EXISTS Mealkit (" +
                 "id INT AUTO_INCREMENT PRIMARY KEY," +
@@ -40,16 +41,17 @@ public class MealkitDAOImplement implements MealkitDAO {
     }
 
 
-    public void create(Mealkit mealkit) {
+    @Override
+    public void create(MealkitDTO mealkitDTO) {
         try {
             String insertSQL = "INSERT INTO Mealkit (MealName, MealCategory, MealPrice, MealInfo) VALUES (?, ?, ?, ?)";
 
             PreparedStatement insertStatement = connection.prepareStatement(insertSQL);
 
-            insertStatement.setString(1, mealkit.getMealName());
-            insertStatement.setString(2, mealkit.getMealCategory());
-            insertStatement.setInt(3, mealkit.getMealPrice());
-            insertStatement.setString(4, mealkit.getMealInfo());
+            insertStatement.setString(1, mealkitDTO.getMealName());
+            insertStatement.setString(2, mealkitDTO.getMealCategory());
+            insertStatement.setInt(3, mealkitDTO.getMealPrice());
+            insertStatement.setString(4, mealkitDTO.getMealInfo());
 
             insertStatement.execute();
             insertStatement.close();
@@ -60,6 +62,7 @@ public class MealkitDAOImplement implements MealkitDAO {
     }
 
 
+    @Override
     public List<Mealkit> findAll(){
         String selectSQL = "SELECT * FROM User";
         try {
@@ -89,6 +92,8 @@ public class MealkitDAOImplement implements MealkitDAO {
         }
     };
 
+
+    @Override
     public Mealkit findbyCategory(String mealCategory){
         String selectSQL = "SELECT * FROM User WHERE MealCategory=?";
         try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
@@ -116,7 +121,7 @@ public class MealkitDAOImplement implements MealkitDAO {
     };
 
 
-
+    @Override
     public Mealkit findbyName(String mealName) {
         String selectSQL = "SELECT * FROM Mealkit WHERE MealName=?";
 
@@ -145,7 +150,7 @@ public class MealkitDAOImplement implements MealkitDAO {
     }
 
 
-
+    @Override
     public Mealkit findbyPrice(int mealPrice) {
         String selectSQL = "SELECT * FROM Mealkit WHERE MealPrice=?";
 
@@ -174,18 +179,19 @@ public class MealkitDAOImplement implements MealkitDAO {
     }
 
 
-    public void updateAll(Mealkit mealkit) {
+    @Override
+    public void updateAll(MealkitDTO mealkitDTO) {
 
         try {
             String updateSQL = "UPDATE Mealkit SET  MealName = ?, MealCategory = ?, MealPrice = ?, MealInfo = ? WHERE id = ?";
 
             PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
 
-            updateStatement.setString(1, mealkit.getMealName());
-            updateStatement.setString(2, mealkit.getMealCategory());
-            updateStatement.setInt(3, mealkit.getMealPrice());
-            updateStatement.setString(4, mealkit.getMealInfo());
-            updateStatement.setLong(5, mealkit.getMealID());
+            updateStatement.setString(1, mealkitDTO.getMealName());
+            updateStatement.setString(2, mealkitDTO.getMealCategory());
+            updateStatement.setInt(3, mealkitDTO.getMealPrice());
+            updateStatement.setString(4, mealkitDTO.getMealInfo());
+            updateStatement.setLong(5, mealkitDTO.getMealID());
 
             int rowsAffected = updateStatement.executeUpdate();
 
@@ -204,14 +210,15 @@ public class MealkitDAOImplement implements MealkitDAO {
     }
 
 
-    public void updateName(Mealkit mealkit) {
+    @Override
+    public void updateName(MealkitDTO mealkitDTO) {
         try {
             String updateSQL ="UPDATE Mealkit SET MealName =? WHERE MealID =? ";
 
             PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
 
-            updateStatement.setString(1,mealkit.getMealName());
-            updateStatement.setLong(2, mealkit.getMealID());
+            updateStatement.setString(1,mealkitDTO.getMealName());
+            updateStatement.setLong(2, mealkitDTO.getMealID());
 
             int rowsAffected = updateStatement.executeUpdate();
 
@@ -229,13 +236,14 @@ public class MealkitDAOImplement implements MealkitDAO {
     };
 
 
-    public void updateCategory(Mealkit mealkit){
+    @Override
+    public void updateCategory(MealkitDTO mealkitDTO){
         try {
             String updateSQL ="UPDATE Mealkit SET MealCategory =? WHERE MealID =? ";
             PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
 
-            updateStatement.setString(1,mealkit.getMealCategory());
-            updateStatement.setLong(2, mealkit.getMealID());
+            updateStatement.setString(1,mealkitDTO.getMealCategory());
+            updateStatement.setLong(2, mealkitDTO.getMealID());
 
             int rowsAffected = updateStatement.executeUpdate();
             if (rowsAffected >0){
@@ -251,13 +259,14 @@ public class MealkitDAOImplement implements MealkitDAO {
     };
 
 
-    public void updatePrice(Mealkit mealkit){
+    @Override
+    public void updatePrice(MealkitDTO mealkitDTO){
         try {
             String updateSQL ="UPDATE Mealkit SET MealPrice =? WHERE MealID =? ";
             PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
 
-            updateStatement.setInt(1,mealkit.getMealPrice());
-            updateStatement.setLong(2, mealkit.getMealID());
+            updateStatement.setInt(1,mealkitDTO.getMealPrice());
+            updateStatement.setLong(2, mealkitDTO.getMealID());
 
             int rowsAffected = updateStatement.executeUpdate();
 
@@ -275,14 +284,15 @@ public class MealkitDAOImplement implements MealkitDAO {
     };
 
 
-    public void updateInfo(Mealkit mealkit) {
+    @Override
+    public void updateInfo(MealkitDTO mealkitDTO) {
         try {
             String updateSQL ="UPDATE Mealkit SET MealCategory =? WHERE MealID =? ";
 
             PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
 
-            updateStatement.setString(1,mealkit.getMealInfo());
-            updateStatement.setLong(2, mealkit.getMealID());
+            updateStatement.setString(1,mealkitDTO.getMealInfo());
+            updateStatement.setLong(2, mealkitDTO.getMealID());
 
             int rowsAffected = updateStatement.executeUpdate();
 
@@ -300,6 +310,7 @@ public class MealkitDAOImplement implements MealkitDAO {
     };
 
 
+    @Override
     public void delete(Long MealID){
         String selectSQL = "DELETE FROM User WHERE id=?";
 
