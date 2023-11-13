@@ -25,7 +25,7 @@ public class UpdateScene extends Scene {
 
         int i = ScanService.scanner.nextInt();
 
-        switch (i){
+        switch (i) {
             // 이름 변경
             case 1 : {
                 System.out.print("변경할 이름 입력 : ");
@@ -67,7 +67,7 @@ public class UpdateScene extends Scene {
             break;
 
             // 상품 정보 전체 변경
-            case 5 :{
+            case 5 : {
                 // 이름
                 System.out.print("변경할 이름 입력 : ");
                 String mealName =  ScanService.scanner.nextLine();
