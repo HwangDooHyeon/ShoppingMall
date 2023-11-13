@@ -1,32 +1,37 @@
 package DAO;
 
+import DTO.MealkitDTO;
+import OBJ.Mealkit;
+
+import java.util.List;
+
 public interface MealkitDAO {
 
-        public void createTable();
 
-        public void create();
+    public void createTable();
 
-        public void findAll();
+    public void create(MealkitDTO mealkitDTO);
 
-        public void findById();
+    public List<Mealkit> findAll();
+  
+    public Mealkit findById(Long ID)
 
-        public void findbyCategory();
+    public Mealkit findbyCategory(String mealCategory);
 
-        public void findbyName();
+    public Mealkit findbyName(String mealName);
 
-        public void findbyPrice();
+    public Mealkit findbyPrice(int mealPrice);
 
-        public void updateAll();
+    public void updateAll(MealkitDTO mealkitDTO);
 
-        public void updateName();
+    public void updateName(MealkitDTO mealkitDTO);
 
-        public void updateCategory();
+    public void updateCategory(MealkitDTO mealkitDTO);
 
-        public void updatePrice();
+    public void updatePrice(MealkitDTO mealkitDTO);
 
-        public void updateInfo();
+    public void updateInfo(MealkitDTO mealkitDTO);
 
-        public void delete();
+    public void delete(Long MealID);
 
-    }
-
+}
