@@ -117,58 +117,59 @@ public class MealkitDAOImplement implements MealkitDAO {
 
 
 
-    public void findbyName(String mealName) {
+    public Mealkit findbyName(String mealName) {
         String selectSQL = "SELECT * FROM Mealkit WHERE MealName=?";
 
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(selectSQL);
+        try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
 
-            List<Mealkit> mealkit = new ArrayList<>();
+            statement.setString(1, mealName);
+            ResultSet resultSet = statement.executeQuery();
 
-            while(resultSet.next()) {
-                mealkit.add(
-                        new Mealkit(
-                                resultSet.getLong("id"),
-                                resultSet.getString("MealName"),
-                                resultSet.getString("MealCategory"),
-                                resultSet.getInt("MealPrice"),
-                                resultSet.getString("MealInfo")
-                        ));
+            if (resultSet.next()) {
+                return new Mealkit(
+                        resultSet.getLong("id"),
+                        resultSet.getString("MealName"),
+                        resultSet.getString("MealCategory"),
+                        resultSet.getInt("MealPrice"),
+                        resultSet.getString("MealInfo")
+                );
             }
 
             resultSet.close();
+            return null;
 
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
+            return null;
         }
     }
 
 
-    public void findbyPrice(int MealPrice) {
+
+    public Mealkit findbyPrice(int mealPrice) {
         String selectSQL = "SELECT * FROM Mealkit WHERE MealPrice=?";
 
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(selectSQL);
+        try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
 
-            List<Mealkit> mealkit = new ArrayList<>();
+            statement.setInt(1, mealPrice);
+            ResultSet resultSet = statement.executeQuery();
 
-            while (resultSet.next()) {
-                mealkit.add(
-                        new Mealkit(
-                                resultSet.getLong("id"),
-                                resultSet.getString("MealName"),
-                                resultSet.getString("MealCategory"),
-                                resultSet.getInt("MealPrice"),
-                                resultSet.getString("MealInfo")
-                        ));
+            if (resultSet.next()) {
+                return new Mealkit(
+                        resultSet.getLong("id"),
+                        resultSet.getString("MealName"),
+                        resultSet.getString("MealCategory"),
+                        resultSet.getInt("MealPrice"),
+                        resultSet.getString("MealInfo")
+                );
             }
 
             resultSet.close();
+            return null;
 
         } catch (SQLException e) {
-            e.getMessage();
+            e.printStackTrace();
+            return null;
         }
     }
 
