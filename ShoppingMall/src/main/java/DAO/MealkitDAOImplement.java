@@ -1,5 +1,6 @@
 package DAO;
 
+import DTO.MealkitDTO;
 import OBJ.Mealkit;
 
 import java.sql.*;
@@ -39,6 +40,33 @@ public class MealkitDAOImplement implements MealkitDAO {
         }
     }
 
+    public Mealkit findById(Long ID) {
+        String selectSQL = "SELECT * FROM MealkitDTO WHERE id=?";
+        try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
+
+            statement.setLong(1, ID);
+            ResultSet resultSet = statement.executeQuery();
+
+            if(resultSet.next()){
+                return new Mealkit(
+                        resultSet.getLong("MealID"),
+                        resultSet.getString("MealName"),
+                        resultSet.getString("MealCategory"),
+                        resultSet.getInt("MealPrice"),
+                        resultSet.getString("MealInfo"));
+
+
+            }
+
+            resultSet.close();
+            return null;
+
+        } catch (SQLException e) {
+            e.getMessage();
+            return null;
+        }
+    }
+
 
     public void create(Mealkit mealkit) {
         try {
@@ -58,6 +86,7 @@ public class MealkitDAOImplement implements MealkitDAO {
             e.getMessage();
         }
     }
+
 
 
     public List<Mealkit> findAll(){
