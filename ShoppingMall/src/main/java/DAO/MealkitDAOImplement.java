@@ -3,24 +3,31 @@ package DAO;
 import DTO.MealkitDTO;
 import OBJ.Mealkit;
 
+import java.sql.*;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 
 public class MealkitDAOImplement implements MealkitDAO {
 
     private static MealkitDAOImplement instance = new MealkitDAOImplement();
 
-    private MealkitDAOImplement(){}
+    private Connection connection = null;
+
+    private MealkitDAOImplement(){
+        try{
+            Class.forName("org.h2.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc:h2:mem:test",
+                    "sa",
+                    "");
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static MealkitDAOImplement getInstance() {return instance;}
 
-    private Connection connection = null;
 
 
     @Override
@@ -93,7 +100,7 @@ public class MealkitDAOImplement implements MealkitDAO {
     };
 
   
-  @Override
+    @Override
     public Mealkit findById(Long ID) {
         String selectSQL = "SELECT * FROM MealkitDTO WHERE id=?";
         try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
