@@ -29,6 +29,7 @@ public class ReadScene extends Scene{
                 for (Mealkit mealkit : MealkitDAOImplement.getInstance().findAll()) {
                     System.out.println("---------------------------");
                     System.out.println(
+                            mealkit.getMealID() + ", " +
                             mealkit.getMealName() + ", " +
                                     mealkit.getMealCategory() + ", " +
                                     mealkit.getMealPrice() + ", " +
@@ -44,7 +45,8 @@ public class ReadScene extends Scene{
                 Mealkit mealkit = MealkitDAOImplement.getInstance().findbyCategory(mealCategory);
                 System.out.println("---------------------------");
                 System.out.println(
-                        mealkit.getMealName() + ", " +
+                        mealkit.getMealID() + ", " +
+                                mealkit.getMealName() + ", " +
                                 mealkit.getMealCategory() + ", " +
                                 mealkit.getMealPrice() + ", " +
                                 mealkit.getMealInfo());
@@ -61,7 +63,8 @@ public class ReadScene extends Scene{
                 for (Mealkit mealkit : MealkitDAOImplement.getInstance().findbyName(mealName)) {
                     System.out.println("---------------------------");
                     System.out.println(
-                            mealkit.getMealName() + ", " +
+                            mealkit.getMealID() + ", " +
+                                    mealkit.getMealName() + ", " +
                                     mealkit.getMealCategory() + ", " +
                                     mealkit.getMealPrice() + ", " +
                                     mealkit.getMealInfo());
@@ -77,6 +80,7 @@ public class ReadScene extends Scene{
                 for (Mealkit mealkit : MealkitDAOImplement.getInstance().findbyPrice(mealPrice)) {
                     System.out.println("---------------------------");
                     System.out.println(
+                            mealkit.getMealID() + ", " +
                             mealkit.getMealName() + ", " +
                                     mealkit.getMealCategory() + ", " +
                                     mealkit.getMealPrice() + ", " +

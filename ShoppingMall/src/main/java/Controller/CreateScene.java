@@ -35,7 +35,7 @@ public class CreateScene extends Scene {
         String mealInfo = ScanService.scanner.nextLine();
         mealkitDTO.setMealInfo(mealInfo);
 
-        MealkitDAOImplement.getInstance().updateAll(mealkitDTO);
+        MealkitDAOImplement.getInstance().create(mealkitDTO);
 
         return 0;
     }
