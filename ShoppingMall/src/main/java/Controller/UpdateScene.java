@@ -50,7 +50,7 @@ public class UpdateScene extends Scene {
 
                 System.out.print("변경할 카테고리 입력 : ");
                 String MealCategory = ScanService.scanner.nextLine();
-                mealkitDTO.setMealName(MealCategory);
+                mealkitDTO.setMealCategory(MealCategory);
 
                 MealkitDAOImplement.getInstance().updateCategory(mealkitDTO);
             }
@@ -66,7 +66,7 @@ public class UpdateScene extends Scene {
 
                 System.out.print("변경할 가격 입력 : ");
                 String MealPrice = ScanService.scanner.nextLine();
-                mealkitDTO.setMealName(MealPrice);
+                mealkitDTO.setMealPrice(Integer.parseInt(MealPrice));
 
                 MealkitDAOImplement.getInstance().updatePrice(mealkitDTO);
             }
@@ -82,7 +82,7 @@ public class UpdateScene extends Scene {
 
                 System.out.print("변경할 상품정보 입력 : ");
                 String MealInfo = ScanService.scanner.nextLine();
-                mealkitDTO.setMealName(MealInfo);
+                mealkitDTO.setMealInfo(MealInfo);
 
                 MealkitDAOImplement.getInstance().updateInfo(mealkitDTO);
             }
@@ -104,17 +104,17 @@ public class UpdateScene extends Scene {
                 // 카테고리
                 System.out.print("변경할 카테고리 입력 : ");
                 String MealCategory =  ScanService.scanner.nextLine();
-                mealkitDTO.setMealName(MealCategory);
+                mealkitDTO.setMealCategory(MealCategory);
 
                 // 가격
                 System.out.print("변경할 가격 입력 : ");
                 String MealPrice =  ScanService.scanner.nextLine();
-                mealkitDTO.setMealName(MealPrice);
+                mealkitDTO.setMealPrice(Integer.parseInt(MealPrice));
 
                 // 상품정보
                 System.out.print("변경할 상품 정보 입력 : ");
                 String MealInfo =  ScanService.scanner.nextLine();
-                mealkitDTO.setMealName(MealInfo);
+                mealkitDTO.setMealInfo(MealInfo);
 
                 MealkitDAOImplement.getInstance().updateAll(mealkitDTO);
             }
