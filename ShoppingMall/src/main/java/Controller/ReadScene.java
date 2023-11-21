@@ -30,16 +30,17 @@ public class ReadScene extends Scene{
                     System.out.println("---------------------------");
                     System.out.println(
                             mealkit.getMealID() + ", " +
-                            mealkit.getMealName() + ", " +
-                                    mealkit.getMealCategory() + ", " +
-                                    mealkit.getMealPrice() + ", " +
-                                    mealkit.getMealInfo());
+                                mealkit.getMealName() + ", " +
+                                mealkit.getMealCategory() + ", " +
+                                mealkit.getMealPrice() + ", " +
+                                mealkit.getMealInfo());
                 }
             }
                 break;
             case 2 :{
                 // ** 카테고리 검색
                 System.out.print("카테고리 입력: ");
+                ScanService.scanner.nextLine();
                 String mealCategory = ScanService.scanner.nextLine();
 
                 Mealkit mealkit = MealkitDAOImplement.getInstance().findbyCategory(mealCategory);
@@ -74,6 +75,7 @@ public class ReadScene extends Scene{
             case 4 : {
                 //** 상품 가격 검색
                 System.out.println("상품가격 입력: ");
+                ScanService.scanner.nextLine();
                 int mealPrice = ScanService.scanner.nextInt();
 
                 //Mealkit mealkit = MealkitDAOImplement.getInstance().findbyPrice(mealPrice);
