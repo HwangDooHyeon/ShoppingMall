@@ -16,8 +16,8 @@ public class CreateScene extends Scene {
         System.out.println("==========================================");
 
         System.out.print("밀키트 이름 입력: ");
-        String mealName = ScanService.scanner.nextLine();
         ScanService.scanner.nextLine();
+        String mealName = ScanService.scanner.nextLine();
         mealkitDTO.setMealName(mealName);
         System.out.println();
 
