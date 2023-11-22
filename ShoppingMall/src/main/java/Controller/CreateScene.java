@@ -16,8 +16,8 @@ public class CreateScene extends Scene {
         System.out.println("==========================================");
 
         System.out.print("밀키트 이름 입력: ");
-        String mealName = ScanService.scanner.nextLine();
         ScanService.scanner.nextLine();
+        String mealName = ScanService.scanner.nextLine();
         mealkitDTO.setMealName(mealName);
         System.out.println();
 
@@ -26,16 +26,18 @@ public class CreateScene extends Scene {
         mealkitDTO.setMealCategory(mealCategory);
         System.out.println();
 
+        System.out.println("!숫자만 입력해주세요!");
         System.out.print("밀키트 가격 입력: ");
-        String mealPrice = ScanService.scanner.nextLine();
-        mealkitDTO.setMealPrice(Integer.parseInt(mealPrice));
+        int mealPrice = ScanService.scanner.nextInt();
+        ScanService.scanner.nextLine();
+        mealkitDTO.setMealPrice(mealPrice);
         System.out.println();
 
         System.out.print("밀키트 상품정보 입력: ");
         String mealInfo = ScanService.scanner.nextLine();
         mealkitDTO.setMealInfo(mealInfo);
 
-        MealkitDAOImplement.getInstance().updateAll(mealkitDTO);
+        MealkitDAOImplement.getInstance().create(mealkitDTO);
 
         return 0;
     }

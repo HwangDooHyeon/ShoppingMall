@@ -16,11 +16,11 @@ public interface MealkitDAO {
   
     public Mealkit findById(Long ID);
 
-    public Mealkit findbyCategory(String mealCategory);
+    public List<Mealkit> findbyCategory(String mealCategory);
 
-    public Mealkit findbyName(String mealName);
+    public List<Mealkit> findbyName(String mealName);
 
-    public Mealkit findbyPrice(int mealPrice);
+    public List<Mealkit> findbyPrice(int mealPrice);
 
     public void updateAll(MealkitDTO mealkitDTO);
 

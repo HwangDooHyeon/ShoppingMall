@@ -33,7 +33,7 @@ public class MealkitDAOImplement implements MealkitDAO {
     @Override
     public void createTable() {
         String tableSQL = "CREATE TABLE IF NOT EXISTS Mealkit (" +
-                "id INT AUTO_INCREMENT PRIMARY KEY," +
+                "MealID INT AUTO_INCREMENT PRIMARY KEY," +
                 "MealName VARCHAR(255) NOT NULL," +
                 "MealCategory VARCHAR(255) NOT NULL," +
                 "MealPrice VARCHAR(255) NOT NULL," +
@@ -71,7 +71,7 @@ public class MealkitDAOImplement implements MealkitDAO {
 
     @Override
     public List<Mealkit> findAll(){
-        String selectSQL = "SELECT * FROM User";
+        String selectSQL = "SELECT * FROM Mealkit";
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(selectSQL);
@@ -81,7 +81,7 @@ public class MealkitDAOImplement implements MealkitDAO {
             while(resultSet.next()){
                 mealkits.add(
                         new Mealkit(
-                                resultSet.getLong("id"),
+                                resultSet.getLong("MealID"),
                                 resultSet.getString("MealName"),
                                 resultSet.getString("MealCategory"),
                                 resultSet.getInt("MealPrice"),
@@ -102,7 +102,7 @@ public class MealkitDAOImplement implements MealkitDAO {
   
     @Override
     public Mealkit findById(Long ID) {
-        String selectSQL = "SELECT * FROM MealkitDTO WHERE id=?";
+        String selectSQL = "SELECT * FROM Mealkit WHERE MealID=?";
         try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
 
             statement.setLong(1, ID);
@@ -128,24 +128,30 @@ public class MealkitDAOImplement implements MealkitDAO {
 
   
     @Override
-    public Mealkit findbyCategory(String mealCategory){
-        String selectSQL = "SELECT * FROM User WHERE MealCategory=?";
+    public List<Mealkit> findbyCategory(String mealCategory){
+        String selectSQL = "SELECT * FROM Mealkit WHERE MealCategory=?";
         try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
 
             statement.setString(1, mealCategory);
             ResultSet resultSet = statement.executeQuery();
 
-            if(resultSet.next()){
-                return new Mealkit(
-                        resultSet.getLong("id"),
-                        resultSet.getString("MealName"),
-                        resultSet.getString("MealCategory"),
-                        resultSet.getInt("MealPrice"),
-                        resultSet.getString("MealInfo"));
+            List<Mealkit> mealkits = new ArrayList<>();
+
+            while(resultSet.next()){
+                mealkits.add(
+                        new Mealkit(
+                            resultSet.getLong("MealID"),
+                            resultSet.getString("MealName"),
+                            resultSet.getString("MealCategory"),
+                            resultSet.getInt("MealPrice"),
+                            resultSet.getString("MealInfo")
+                        )
+                );
+
             }
 
             resultSet.close();
-            return null;
+            return mealkits;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -156,7 +162,7 @@ public class MealkitDAOImplement implements MealkitDAO {
 
 
     @Override
-    public Mealkit findbyName(String mealName) {
+    public List<Mealkit> findbyName(String mealName) {
         String selectSQL = "SELECT * FROM Mealkit WHERE MealName=?";
 
         try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
@@ -164,18 +170,22 @@ public class MealkitDAOImplement implements MealkitDAO {
             statement.setString(1, mealName);
             ResultSet resultSet = statement.executeQuery();
 
-            if (resultSet.next()) {
-                return new Mealkit(
-                        resultSet.getLong("id"),
-                        resultSet.getString("MealName"),
-                        resultSet.getString("MealCategory"),
-                        resultSet.getInt("MealPrice"),
-                        resultSet.getString("MealInfo")
-                );
+            List<Mealkit> mealkits = new ArrayList<>();
+
+            while(resultSet.next()){
+                mealkits.add(
+                        new Mealkit(
+                            resultSet.getLong("MealID"),
+                            resultSet.getString("MealName"),
+                            resultSet.getString("MealCategory"),
+                            resultSet.getInt("MealPrice"),
+                            resultSet.getString("MealInfo")
+                        )
+                    );
             }
 
             resultSet.close();
-            return null;
+            return mealkits;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -185,7 +195,7 @@ public class MealkitDAOImplement implements MealkitDAO {
 
 
     @Override
-    public Mealkit findbyPrice(int mealPrice) {
+    public List<Mealkit> findbyPrice(int mealPrice) {
         String selectSQL = "SELECT * FROM Mealkit WHERE MealPrice=?";
 
         try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
@@ -193,18 +203,22 @@ public class MealkitDAOImplement implements MealkitDAO {
             statement.setInt(1, mealPrice);
             ResultSet resultSet = statement.executeQuery();
 
-            if (resultSet.next()) {
-                return new Mealkit(
-                        resultSet.getLong("id"),
-                        resultSet.getString("MealName"),
-                        resultSet.getString("MealCategory"),
-                        resultSet.getInt("MealPrice"),
-                        resultSet.getString("MealInfo")
-                );
+            List<Mealkit> mealkits = new ArrayList<>();
+
+            while(resultSet.next()){
+                mealkits.add(
+                        new Mealkit(
+                            resultSet.getLong("MealID"),
+                            resultSet.getString("MealName"),
+                            resultSet.getString("MealCategory"),
+                            resultSet.getInt("MealPrice"),
+                            resultSet.getString("MealInfo")
+                        )
+                    );
             }
 
             resultSet.close();
-            return null;
+            return mealkits;
 
         } catch (SQLException e) {
             e.printStackTrace();
@@ -217,7 +231,7 @@ public class MealkitDAOImplement implements MealkitDAO {
     public void updateAll(MealkitDTO mealkitDTO) {
 
         try {
-            String updateSQL = "UPDATE Mealkit SET  MealName = ?, MealCategory = ?, MealPrice = ?, MealInfo = ? WHERE id = ?";
+            String updateSQL = "UPDATE Mealkit SET  MealName = ?, MealCategory = ?, MealPrice = ?, MealInfo = ? WHERE MealID = ?";
 
             PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
 
@@ -346,7 +360,7 @@ public class MealkitDAOImplement implements MealkitDAO {
 
     @Override
     public void delete(Long MealID){
-        String selectSQL = "DELETE FROM User WHERE id=?";
+        String selectSQL = "DELETE FROM Mealkit WHERE MealID=?";
 
         try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
 

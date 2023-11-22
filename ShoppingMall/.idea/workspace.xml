@@ -5,8 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="115b77f4-689f-4c39-9588-1cf088b3cb81" name="변경" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/8.2/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller/CreateScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Controller/CreateScene.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller/MealkitController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller/ReadScene.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Controller/ReadScene.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Controller/Scene.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Controller/Scene.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/MealkitDAO$SceneDAO.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/MealkitDAO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/MealkitDAO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DAO/MealkitDAOImplement.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DAO/MealkitDAOImplement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/DTO/MealkitDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/DTO/MealkitDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/OBJ/Mealkit.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/OBJ/Mealkit.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Service/MealkitService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/Service/ScanService.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/Service/ScanService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UpdateScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Controller/UpdateScene.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +82,10 @@
     "git-widget-placeholder": "DooHyeon",
     "ignore.virus.scanning.warn.message": "true",
     "last_opened_file_path": "C:/Users/geg55/OneDrive/Desktop/ShoppingMall/ShoppingMall",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.annotationProcessors"
+    "project.structure.last.edited": "모듈",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="애플리케이션 수준" UseSingleDictionary="true" transferred="true" />
