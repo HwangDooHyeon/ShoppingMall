@@ -26,9 +26,11 @@ public class CreateScene extends Scene {
         mealkitDTO.setMealCategory(mealCategory);
         System.out.println();
 
+        System.out.println("!숫자만 입력해주세요!");
         System.out.print("밀키트 가격 입력: ");
-        String mealPrice = ScanService.scanner.nextLine();
-        mealkitDTO.setMealPrice(Integer.parseInt(mealPrice));
+        int mealPrice = ScanService.scanner.nextInt();
+        ScanService.scanner.nextLine();
+        mealkitDTO.setMealPrice(mealPrice);
         System.out.println();
 
         System.out.print("밀키트 상품정보 입력: ");

@@ -10,7 +10,6 @@ public class UpdateScene extends Scene {
 
         Long MealID = null;
 
-
         System.out.println();
         System.out.println("*** 밀키트 상품 정보 업데이트 ***");
         System.out.println("==========================================");
@@ -109,6 +108,7 @@ public class UpdateScene extends Scene {
                 // 가격
                 System.out.print("변경할 가격 입력 : ");
                 int MealPrice = ScanService.scanner.nextInt();
+                ScanService.scanner.nextLine();
                 mealkitDTO.setMealPrice(MealPrice);
 
                 // 상품정보
