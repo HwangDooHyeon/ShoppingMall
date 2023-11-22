@@ -33,7 +33,7 @@ public class MealkitDAOImplement implements MealkitDAO {
     @Override
     public void createTable() {
         String tableSQL = "CREATE TABLE IF NOT EXISTS Mealkit (" +
-                "id INT AUTO_INCREMENT PRIMARY KEY," +
+                "MealID INT AUTO_INCREMENT PRIMARY KEY," +
                 "MealName VARCHAR(255) NOT NULL," +
                 "MealCategory VARCHAR(255) NOT NULL," +
                 "MealPrice VARCHAR(255) NOT NULL," +
@@ -81,7 +81,7 @@ public class MealkitDAOImplement implements MealkitDAO {
             while(resultSet.next()){
                 mealkits.add(
                         new Mealkit(
-                                resultSet.getLong("id"),
+                                resultSet.getLong("MealID"),
                                 resultSet.getString("MealName"),
                                 resultSet.getString("MealCategory"),
                                 resultSet.getInt("MealPrice"),
@@ -102,7 +102,7 @@ public class MealkitDAOImplement implements MealkitDAO {
   
     @Override
     public Mealkit findById(Long ID) {
-        String selectSQL = "SELECT * FROM Mealkit WHERE id=?";
+        String selectSQL = "SELECT * FROM Mealkit WHERE MealID=?";
         try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
 
             statement.setLong(1, ID);
@@ -140,7 +140,7 @@ public class MealkitDAOImplement implements MealkitDAO {
             while(resultSet.next()){
                 mealkits.add(
                         new Mealkit(
-                            resultSet.getLong("id"),
+                            resultSet.getLong("MealID"),
                             resultSet.getString("MealName"),
                             resultSet.getString("MealCategory"),
                             resultSet.getInt("MealPrice"),
@@ -175,7 +175,7 @@ public class MealkitDAOImplement implements MealkitDAO {
             while(resultSet.next()){
                 mealkits.add(
                         new Mealkit(
-                            resultSet.getLong("id"),
+                            resultSet.getLong("MealID"),
                             resultSet.getString("MealName"),
                             resultSet.getString("MealCategory"),
                             resultSet.getInt("MealPrice"),
@@ -208,7 +208,7 @@ public class MealkitDAOImplement implements MealkitDAO {
             while(resultSet.next()){
                 mealkits.add(
                         new Mealkit(
-                            resultSet.getLong("id"),
+                            resultSet.getLong("MealID"),
                             resultSet.getString("MealName"),
                             resultSet.getString("MealCategory"),
                             resultSet.getInt("MealPrice"),
@@ -231,7 +231,7 @@ public class MealkitDAOImplement implements MealkitDAO {
     public void updateAll(MealkitDTO mealkitDTO) {
 
         try {
-            String updateSQL = "UPDATE Mealkit SET  MealName = ?, MealCategory = ?, MealPrice = ?, MealInfo = ? WHERE id = ?";
+            String updateSQL = "UPDATE Mealkit SET  MealName = ?, MealCategory = ?, MealPrice = ?, MealInfo = ? WHERE MealID = ?";
 
             PreparedStatement updateStatement = connection.prepareStatement(updateSQL);
 
@@ -360,7 +360,7 @@ public class MealkitDAOImplement implements MealkitDAO {
 
     @Override
     public void delete(Long MealID){
-        String selectSQL = "DELETE FROM Mealkit WHERE id=?";
+        String selectSQL = "DELETE FROM Mealkit WHERE MealID=?";
 
         try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
 
