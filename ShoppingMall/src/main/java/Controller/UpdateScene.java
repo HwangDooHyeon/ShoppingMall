@@ -65,8 +65,8 @@ public class UpdateScene extends Scene {
                 MealkitDTO mealkitDTO = new MealkitDTO(MealkitDAOImplement.getInstance().findById(MealID));
 
                 System.out.print("변경할 가격 입력 : ");
-                String MealPrice = ScanService.scanner.nextLine();
-                mealkitDTO.setMealPrice(Integer.parseInt(MealPrice));
+                int MealPrice = ScanService.scanner.nextInt();
+                mealkitDTO.setMealPrice(MealPrice);
 
                 MealkitDAOImplement.getInstance().updatePrice(mealkitDTO);
             }
