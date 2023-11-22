@@ -16,7 +16,7 @@ public interface MealkitDAO {
   
     public Mealkit findById(Long ID);
 
-    public Mealkit findbyCategory(String mealCategory);
+    public List<Mealkit> findbyCategory(String mealCategory);
 
     public List<Mealkit> findbyName(String mealName);
 

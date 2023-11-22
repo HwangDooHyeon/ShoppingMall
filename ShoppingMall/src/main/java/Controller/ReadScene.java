@@ -43,14 +43,17 @@ public class ReadScene extends Scene{
                 ScanService.scanner.nextLine();
                 String mealCategory = ScanService.scanner.nextLine();
 
-                Mealkit mealkit = MealkitDAOImplement.getInstance().findbyCategory(mealCategory);
-                System.out.println("---------------------------");
-                System.out.println(
-                        mealkit.getMealID() + ", " +
-                                mealkit.getMealName() + ", " +
-                                mealkit.getMealCategory() + ", " +
-                                mealkit.getMealPrice() + ", " +
-                                mealkit.getMealInfo());
+                //Mealkit mealkit = MealkitDAOImplement.getInstance().findbyCategory(mealCategory);
+                for (Mealkit mealkit : MealkitDAOImplement.getInstance().findbyCategory(mealCategory)) {
+                    System.out.println("---------------------------");
+                    System.out.println(
+                            mealkit.getMealID() + ", " +
+                                    mealkit.getMealName() + ", " +
+                                    mealkit.getMealCategory() + ", " +
+                                    mealkit.getMealPrice() + ", " +
+                                    mealkit.getMealInfo());
+
+                }
 
             }
             break;
