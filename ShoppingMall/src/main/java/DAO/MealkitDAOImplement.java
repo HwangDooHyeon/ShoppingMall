@@ -128,24 +128,30 @@ public class MealkitDAOImplement implements MealkitDAO {
 
   
     @Override
-    public Mealkit findbyCategory(String mealCategory){
+    public List<Mealkit> findbyCategory(String mealCategory){
         String selectSQL = "SELECT * FROM Mealkit WHERE MealCategory=?";
         try (PreparedStatement statement = connection.prepareStatement(selectSQL)) {
 
             statement.setString(1, mealCategory);
             ResultSet resultSet = statement.executeQuery();
 
-            if(resultSet.next()){
-                return new Mealkit(
-                        resultSet.getLong("id"),
-                        resultSet.getString("MealName"),
-                        resultSet.getString("MealCategory"),
-                        resultSet.getInt("MealPrice"),
-                        resultSet.getString("MealInfo"));
+            List<Mealkit> mealkits = new ArrayList<>();
+
+            while(resultSet.next()){
+                mealkits.add(
+                        new Mealkit(
+                            resultSet.getLong("id"),
+                            resultSet.getString("MealName"),
+                            resultSet.getString("MealCategory"),
+                            resultSet.getInt("MealPrice"),
+                            resultSet.getString("MealInfo")
+                        )
+                );
+
             }
 
             resultSet.close();
-            return null;
+            return mealkits;
 
         } catch (SQLException e) {
             e.printStackTrace();
